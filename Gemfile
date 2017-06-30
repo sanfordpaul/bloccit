@@ -19,6 +19,10 @@ group :production do
    gem 'listen', '>= 3.0.5', '< 3.2'
  end
 
+ group :development, :test do
+   gem 'rspec-rails', '~> 3.0'
+ end
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use Puma as the app server
