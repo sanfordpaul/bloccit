@@ -17,6 +17,7 @@ group :production do
    gem 'sqlite3'
    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
    gem 'listen', '>= 3.0.5', '< 3.2'
+   gem 'rb-fsevent', '= 0.10.2'
    gem 'pry-rails'
  end
 
