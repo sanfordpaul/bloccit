@@ -23,7 +23,7 @@
 .byebug_history
 
 # ignore IDE Rubymine files
-/.idea
+/.idea/*
 
 *.rbc
 capybara-*.html
