@@ -28,10 +28,28 @@ unique_post = {title: "unique title", body: "unique body"}
 Post.find_or_create_by!(unique_post)
 
 unique_comment = { body: "unique comment body",
-                   post: Post.find_by!(unique_post) }                 
+                   post: Post.find_by!(unique_post) }
 Comment.find_or_create_by!(unique_comment)
+
+
+
+
+
+
+
+50.times do
+  Advertisement.create!(
+    title:  RandomData.random_sentence,
+    body:   RandomData.random_paragraph,
+    price: Random.rand(0..100)
+  )
+end
+advertisements = Advertisement.all
+
+
 
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Advertisement.count} advertisements created"
