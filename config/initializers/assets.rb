@@ -12,6 +12,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-%w( advertisements welcome posts sponsored_posts questions topics ).each do |controller|
+%w( advertisements welcome posts sponsored_posts questions topics users ).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.scss"]
 end

@@ -21,9 +21,11 @@ class User < ApplicationRecord
 
   def capitalize_name
     if self.name.present?
-      self.name.downcase!
-      name_array = self.name.split(' ')
-      name_array.map! { |word| word.capitalize! }
+      name_array = self.name.split
+      name_array.map! do |word|
+        word[0] = word[0].upcase
+        word
+      end
       self.name = name_array.join(" ")
     end
   end
