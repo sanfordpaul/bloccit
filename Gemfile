@@ -26,10 +26,10 @@ group :production do
    gem 'rails-controller-testing'
    gem 'shoulda'
  end
-
+# Use bcryt, adds hashing algorithims for passwords
+gem 'bcrypt'
+# Use bootstrap library, styling css and javascript
 gem 'bootstrap-sass'
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
