@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   validates :topic, presence: true
   validates :user, presence: true
 
-
+  scope :ordered_by_title, -> { order('title DESC') }
+  scope :ordered_by_reverse_created_at, ->  { order('created_at ASC')}
 
 end
