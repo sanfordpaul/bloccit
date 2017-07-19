@@ -15,10 +15,18 @@ require 'random_data'
   )
 end
 
-user = User.first
-user.update_attributes!(
-  name: 'Paul Sanford',
-  email: 'sanfordpaul@gmail.com',
+# Create an admin user
+admin = User.create!(
+  name:     'Admin User',
+  email:    'admin@user.com',
+  password: 'password',
+  role:     'admin'
+)
+
+# Create a member
+member = User.create!(
+  name:     'Member User',
+  email:    'member@user.com',
   password: 'password'
 )
 
