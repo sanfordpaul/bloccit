@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
   describe "shoulda tests" do
 
     it { is_expected.to have_many(:posts) }
+    it { is_expected.to have_many(:comments) }
 
 
     # Shoulda tests for name
@@ -73,7 +74,7 @@ RSpec.describe User, type: :model do
       end
     end
   end
-  
+
   describe "invalid user" do
     let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
     let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
