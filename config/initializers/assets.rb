@@ -19,6 +19,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
     questions
     topics
     users
-    sessions ).each do |controller|
-  Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.scss"]
+    sessions
+    votes ).each do |controller|
+      Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.scss"]
 end
