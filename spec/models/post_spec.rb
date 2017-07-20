@@ -78,4 +78,21 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+  describe "New Post Created" do
+
+
+    describe "after_create" do
+      it "creates an upvote for the post on which it was called" do
+        expect(post.up_votes).to eq (1)
+      end
+      it "is associated with the post on which it was called " do
+        new_post = topic.posts.new(title: title, body: body, user: user)
+        expect(new_post).to receive(:create_vote)
+        new_post.save
+      end
+      it "is associated with the user who made the post" do
+        expect(post.votes.first.user).to eq(post.user)
+      end
+    end
+  end
 end

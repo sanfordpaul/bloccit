@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :authorize_admin, only: :destroy
   before_action :authorize_privileged, only: [ :edit, :update ]
 
+
   def show
     @post = Post.find(params[:id])
   end
@@ -58,23 +59,28 @@ class PostsController < ApplicationController
   end
 
   private
-  def post_params
-    params.require(:post).permit(:title, :body)
-  end
 
-  def authorize_admin
-    post = Post.find(params[:id])
-    unless current_user == post.user || current_user.admin?
-      flash[:alert] = "You must be an admin to do that."
-      redirect_to [post.topic, post]
+    def post_params
+      params.require(:post).permit(:title, :body)
     end
-  end
 
-  def authorize_privileged
-    post = Post.find(params[:id])
-    unless current_user == post.user || current_user.admin? || current_user.moderator?
-      flash[:alert] = "You must be a privileged user to do that."
-      redirect_to [post.topic, post]
+    def authorize_admin
+      post = Post.find(params[:id])
+      unless current_user == post.user || current_user.admin?
+        flash[:alert] = "You must be an admin to do that."
+        redirect_to [post.topic, post]
+      end
     end
-  end
+
+    def authorize_privileged
+      post = Post.find(params[:id])
+      unless current_user == post.user || current_user.admin? || current_user.moderator?
+        flash[:alert] = "You must be a privileged user to do that."
+        redirect_to [post.topic, post]
+      end
+    end
+
+    def create_vote
+      user.votes.create(value: 1, post: self)
+    end
 end
