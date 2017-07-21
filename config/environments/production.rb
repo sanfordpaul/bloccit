@@ -88,4 +88,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # ! set url for mailer to heroku site address
+  config.action_mailer.default_url_options = { host: 'dry-scrubland-32900.herokuapp.com' }
+
 end

@@ -13,6 +13,7 @@ RSpec.describe Post, type: :model do
 
   it { is_expected.to have_many(:comments) }
   it { is_expected.to have_many(:votes) }
+  it { is_expected.to have_many(:favorites) }
 
   it { is_expected.to belong_to(:topic) }
   it { is_expected.to belong_to(:user) }
@@ -78,8 +79,8 @@ RSpec.describe Post, type: :model do
       end
     end
   end
-  describe "New Post Created" do
 
+  describe "New Post Created" do
 
     describe "after_create" do
       it "creates an upvote for the post on which it was called" do

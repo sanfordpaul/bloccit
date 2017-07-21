@@ -69,3 +69,6 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore application configuration CONTAINS SECRETS! DO N0T PUSH TO REPO
+/config/application.yml

@@ -26,6 +26,8 @@ group :production do
    gem 'rails-controller-testing'
    gem 'shoulda'
  end
+#use figaro to guard sensitive info 
+gem 'figaro'
 # Use bcryt, adds hashing algorithims for passwords
 gem 'bcrypt'
 # Use bootstrap library, styling css and javascript
