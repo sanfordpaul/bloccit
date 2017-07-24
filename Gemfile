@@ -25,8 +25,10 @@ group :production do
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
    gem 'shoulda'
+   gem 'factory_girl_rails'
+
  end
-#use figaro to guard sensitive info 
+#use figaro to guard sensitive info
 gem 'figaro'
 # Use bcryt, adds hashing algorithims for passwords
 gem 'bcrypt'
