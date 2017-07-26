@@ -11,8 +11,12 @@
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %></h2>
         <small>
-          <%= pluralize(@user.posts.count, 'post') %>,
-          <%= pluralize(@user.comments.count, 'comment') %>
+          <% if detects_posts_comments(@user) then %>
+            <%= pluralize(@user.posts.count, 'post') %>,
+            <%= pluralize(@user.comments.count, 'comment') %>
+          <% else %>
+            <%= "#{@user.name} has not submitted any posts or comments yet." %>
+          <% end %>
         </small>
       </div>
     </div>
@@ -24,3 +28,8 @@
 
 <h2>Comments</h2>
 <%= render @user.comments %>
+
+<h2>Favorite Posts</h2>
+
+<% favorite_posts = @user.posts.favorites(@user) %>
+<%= render partial: "favorites/favorite_posts", collection: favorite_posts, as: :favorite_post %>

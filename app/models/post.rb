@@ -19,6 +19,7 @@ class Post < ApplicationRecord
   scope :ordered_by_title, -> { order('title DESC') }
   scope :ordered_by_reverse_created_at, ->  { order('created_at ASC')}
   scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
+  scope :favorites, -> (user) { joins(:user).where('posts.user' => user) }
 
   def up_votes
     votes.where(value: 1).count
