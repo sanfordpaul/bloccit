@@ -3,12 +3,18 @@ class VotesController < ApplicationController
 
   def up_vote
     update_vote(1)
-    redirect_back(fallback_location: :root)
+    respond_to do |format|
+      format.html
+      format.js {redirect_back(fallback_location: :root)}
+    end
   end
 
   def down_vote
     update_vote(-1)
-    redirect_back(fallback_location: :root)
+    respond_to do |format|
+      format.html
+      format.js {redirect_back(fallback_location: :root)}
+    end
   end
 
   private
